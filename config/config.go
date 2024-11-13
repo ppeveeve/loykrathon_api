@@ -8,12 +8,14 @@ import (
 )
 
 type Config struct {
-	DBUser     string
-	DBPassword string
-	DBName     string
-	DBHost     string
-	DBPort     string
-	AppPort    string
+	DBUser      string
+	DBPassword  string
+	DBName      string
+	DBHost      string
+	DBPort      string
+	AppPort     string
+	KafkaBroker string
+	KafkaTopic  string
 }
 
 func LoadConfig(env string) *Config {
@@ -24,11 +26,13 @@ func LoadConfig(env string) *Config {
 	}
 
 	return &Config{
-		DBUser:     os.Getenv("MYSQLUSER"),
-		DBPassword: os.Getenv("MYSQLPASSWORD"),
-		DBName:     os.Getenv("MYSQLDATABASE"),
-		DBHost:     os.Getenv("MYSQLHOST"),
-		DBPort:     os.Getenv("MYSQLPORT"),
-		AppPort:    os.Getenv("APP_PORT"),
+		DBUser:      os.Getenv("MYSQLUSER"),
+		DBPassword:  os.Getenv("MYSQLPASSWORD"),
+		DBName:      os.Getenv("MYSQLDATABASE"),
+		DBHost:      os.Getenv("MYSQLHOST"),
+		DBPort:      os.Getenv("MYSQLPORT"),
+		AppPort:     os.Getenv("APP_PORT"),
+		KafkaBroker: os.Getenv("KAFKA_BROKER"),
+		KafkaTopic:  os.Getenv("KAFKA_TOPIC"),
 	}
 }
