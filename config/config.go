@@ -26,11 +26,11 @@ func LoadConfig(env string) *Config {
 	}
 
 	return &Config{
-		DBUser:      os.Getenv("DB_USER"),
-		DBPassword:  os.Getenv("DB_PASSWORD"),
-		DBName:      os.Getenv("DB_NAME"),
-		DBHost:      os.Getenv("DB_HOST"),
-		DBPort:      os.Getenv("DB_PORT"),
+		DBUser:      os.Getenv("MYSQLUSER"),
+		DBPassword:  os.Getenv("MYSQLPASSWORD"),
+		DBName:      os.Getenv("MYSQLDATABASE"),
+		DBHost:      os.Getenv("MYSQLHOST"),
+		DBPort:      os.Getenv("MYSQLPORT"),
 		AppPort:     os.Getenv("APP_PORT"),
 		KafkaBroker: os.Getenv("KAFKA_BROKER"),
 		KafkaTopic:  os.Getenv("KAFKA_TOPIC"),

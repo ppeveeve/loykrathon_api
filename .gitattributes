@@ -8,3 +8,4 @@
 *.go text eol=crlf
 *.json text eol=lf
 *.yaml text eol=lf
+*.env.dev text eol=lf

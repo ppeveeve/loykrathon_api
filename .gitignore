@@ -7,7 +7,7 @@
 .vscode/
 
 # Environment files
-config/.env.*
+# config/.env.*
 
 # Other files to ignore
 *.log
