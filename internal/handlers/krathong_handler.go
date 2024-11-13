@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 	"time"
@@ -69,26 +68,26 @@ func (h *KrathongHandler) CreateKrathong(c *gin.Context) {
 	}
 
 	// Publish the created Krathong to Kafka
-	message, err := json.Marshal(krathong)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, KrathongDataResponse{
-			ResponseCode:    "0004",
-			ResponseMessage: "Failed to encode Krathong data: " + err.Error(),
-		})
-		return
-	}
+	// message, err := json.Marshal(krathong)
+	// if err != nil {
+	// 	c.JSON(http.StatusInternalServerError, KrathongDataResponse{
+	// 		ResponseCode:    "0004",
+	// 		ResponseMessage: "Failed to encode Krathong data: " + err.Error(),
+	// 	})
+	// 	return
+	// }
 
 	// Log before publishing to Kafka
-	log.Println("Attempting to publish to Kafka...")
+	// log.Println("Attempting to publish to Kafka...")
 
-	if err := h.KafkaProducer.PublishMessage("krathong_key", message); err != nil {
-		log.Printf("Failed to publish to Kafka: %v", err)
-		c.JSON(http.StatusInternalServerError, KrathongDataResponse{
-			ResponseCode:    "0004",
-			ResponseMessage: "Failed to publish message to Kafka: " + err.Error(),
-		})
-		return
-	}
+	// if err := h.KafkaProducer.PublishMessage("krathong_key", message); err != nil {
+	// 	log.Printf("Failed to publish to Kafka: %v", err)
+	// 	c.JSON(http.StatusInternalServerError, KrathongDataResponse{
+	// 		ResponseCode:    "0004",
+	// 		ResponseMessage: "Failed to publish message to Kafka: " + err.Error(),
+	// 	})
+	// 	return
+	// }
 
 	// Log success message
 	log.Println("Message successfully published to Kafka")
